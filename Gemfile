@@ -21,7 +21,7 @@ end
 gem 'jquery-rails'
 
 group :test, :development do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 2.11'
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'pry-debugger'
@@ -29,14 +29,14 @@ group :test, :development do
 end
 
 group :test do
-  gem 'capybara'
-  gem 'factory_girl'
-  # gem 'simplecov'
+  gem 'capybara', '1.1.2'
+  gem 'factory_girl', '2.6.4'
+  # gem 'simplecov', require => false
   # gem 'email_spec'
 end
 
 gem 'devise'
-# gem 'cancan'
+# gem 'cancan', '1.6.7'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
