@@ -35,7 +35,7 @@ group :test do
   # gem 'email_spec'
 end
 
-# gem 'devise'
+gem 'devise'
 # gem 'cancan'
 
 # To use ActiveModel has_secure_password
