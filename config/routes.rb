@@ -1,7 +1,9 @@
 ScheduleMeNow::Application.routes.draw do
   devise_for :users
 
-  root :to => "interview#index"
+  resources :interviews
+
+  root :to => "interviews#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
