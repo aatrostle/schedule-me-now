@@ -12,5 +12,4 @@ feature 'Signing up' do
     page.should have_content('Please confirm your account ' +
                              'before signing in.')
   end
-
 end
