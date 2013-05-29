@@ -9,8 +9,5 @@ feature 'Signing up' do
     fill_in 'Password confirmation', :with => 'password'
     click_button 'Sign up'
     page.should have_content("You have signed up successfully.")
-    # message = 'Please open the link to activate your account.'
-    # page.should have_content('Please confirm your account ' +
-    #                          'before signing in.')
   end
 end

@@ -6,7 +6,7 @@ feature 'Signing in' do
   end
 
   scenario 'Signing in via form' do
-    User.find_by_email('instructor@codefellows.org').confirm!
+    User.find_by_email('instructor@codefellows.org')
     visit '/'
     click_link 'Sign in'
     fill_in 'Email', :with => "instructor@codefellows.org"
