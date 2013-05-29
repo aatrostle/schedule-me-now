@@ -16,5 +16,7 @@ FactoryGirl.define do
       after_create do |user|
         user.confirm!
         user.update_attribute(:instructor, true)
+      end
     end
+  end
 end
