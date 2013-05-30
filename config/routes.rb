@@ -2,7 +2,6 @@ ScheduleMeNow::Application.routes.draw do
   devise_for :users
 
   resources :interviews
-  resources :applicants
 
   root :to => "interviews#index"
 

@@ -12,5 +12,4 @@ class User < ActiveRecord::Base
   validates :name, :presence => true
 
   has_many :interviews
-  has_many :applicants, :through => :interviews
 end
