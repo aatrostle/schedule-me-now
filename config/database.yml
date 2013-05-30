@@ -3,21 +3,21 @@ development:
   encoding: unicode
   database: schedulemenow_development
   pool: 5
-  username: aarontrostle
-  password:
+  username: scheduleme
+  password: password
 
 test:
   adapter: postgresql
   encoding: unicode
   database: schedulemenow_test
   pool: 5
-  username: aarontrostle
-  password:
+  username: scheduleme
+  password: password
 
 production:
   adapter: postgresql
   encoding: unicode
   database: schedulemenow_production
   pool: 5
-  username: aarontrostle
+  username: scheduleme
   password:
