@@ -1,13 +1,9 @@
-= form_for(@interview) do |f|
+= form_for @interview, :html => {:class => "form-horizontal"} do |f|
   = f.error_messages
-  %p
-    = f.label :interview_at
-    = f.datetime_select :interview_at
-  %p
-    = f.label :applicant_id
-    = f.collection_select :applicant_id, Applicant.all, :id, :name
-  %p
-    = f.label :user_id
-    = f.collection_select :user_id, User.all, :id, :name
-  %p
-    = f.submit
+  %div.control-group
+    = f.label :interview_at, :class => "control-label"
+    %div.controls
+      = f.datetime_select :interview_at
+  %div.control-group
+    %div.controls
+      = f.submit "Create Interview", :class => "btn"

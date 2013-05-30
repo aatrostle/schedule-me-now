@@ -1,0 +1,8 @@
+//
+// list of variables http://twitter.github.io/bootstrap/customize.html#variables
+// define variables you want to change before importing bootstrap
+@import "bootstrap";
+
+body { padding-top: 60px; }
+
+@import "bootstrap-responsive";
