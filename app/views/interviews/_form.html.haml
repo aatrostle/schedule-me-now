@@ -1,13 +1,13 @@
 = form_for(@interview) do |f|
-  / = f.error_messages
+  = f.error_messages
   %p
     = f.label :interview_at
     = f.datetime_select :interview_at
   %p
     = f.label :applicant_id
-    /= f.collection_select :applicant_id, User.all, :id, :name
+    = f.collection_select :applicant_id, Applicant.all, :id, :name
   %p
-    = f.label :instructor_id
-    /= f.collection_select :instructor_id, User.all, :id, :name
+    = f.label :user_id
+    = f.collection_select :user_id, User.all, :id, :name
   %p
     = f.submit

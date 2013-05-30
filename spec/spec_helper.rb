@@ -36,3 +36,14 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
+
+def select_date_time(date, options ={})
+  field = options[:from]
+  base_id = find(:xpath, ".//label[contains(.,'#{field}')]")[:for]
+  year, month, day, hour, minute = date.split(',')
+  select year, :from => "#{base_id}_1i"
+  select month, :from => "#{base_id}_2i"
+  select day, :from => "#{base_id}_3i"
+  select hour, :from => "#{base_id}_4i"
+  select minute, :from => "#{base_id}_5i"
+end
