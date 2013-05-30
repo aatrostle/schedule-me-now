@@ -4,7 +4,11 @@ module AuthenticationHelpers
     fill_in "Email", :with => user.email
     fill_in "Password", :with => "password"
     click_button 'Sign in'
-    page.should have_content("Today's Interviews")
+    # if user == :instructor_user
+    #   page.should have_content("Dashboard")
+    # else
+    #   page.should have_content("Reserve your spot today!")
+    # end
   end
 end
 
