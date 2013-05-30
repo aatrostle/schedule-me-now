@@ -8,6 +8,7 @@ ScheduleMeNow::Application.routes.draw do
   end
 
   get "/dashboard" => "dashboard#index"
+  get "/dashboard/users" => "dashboard#users"
   get "/reservations" => "reservations#index"
 
   # The priority is based upon order of creation:

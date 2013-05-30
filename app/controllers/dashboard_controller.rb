@@ -5,4 +5,8 @@ class DashboardController < ApplicationController
     @interviews = Interview.all
   end
 
+  def users
+    @users = User.all
+  end
+
 end

@@ -1,0 +1,5 @@
+.row
+  .span12
+    %ul.nav.nav-pills
+      %li{:class => "#{'active' if current_page?(dashboard_path)}"}= link_to "Dashboard", dashboard_path
+      %li{:class => "#{'active' if current_page?(dashboard_users_path)}"}= link_to "Users", dashboard_users_path

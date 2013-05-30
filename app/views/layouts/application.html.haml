@@ -23,5 +23,10 @@
           .row
             .span12
               = render 'layouts/messages'
-              = yield
-          %footer
+        - if current_user && current_user.instructor?
+          = render 'layouts/instructor_nav'
+        .row
+          .span12
+            = yield
+        %footer
+          this is the footer
