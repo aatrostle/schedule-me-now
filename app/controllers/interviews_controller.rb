@@ -1,5 +1,6 @@
 class InterviewsController < ApplicationController
-  # before_filter :authorize_instructor!
+  before_filter :authorize_instructor!, :only => [:create]
+  before_filter :find_interview, :only => [:update]
 
   def index
     @interviews = Interview.all
@@ -27,13 +28,23 @@ class InterviewsController < ApplicationController
   end
 
   def update
-    if @interview.update_attributes(params[:interview])
+    if current_user.instructor?
+      @interview.update_attributes(params[:interview])
       flash[:notice] = "Interview has been updated."
       redirect_to interviews_path
     else
-      flash[:alert] = "Interview has not been updated."
-      render :action => "edit"
+      if current_user.id == @interview.applicant_id
+        @interview.update_attribute(:applicant_id, nil)
+      elsif @interview.applicant_id == nil
+        @interview.update_attribute(:applicant_id, current_user.id)
+      end
+      redirect_to reservations_path
     end
+  end
+
+private
+  def find_interview
+    @interview = Interview.find(params[:id])
   end
 
 end

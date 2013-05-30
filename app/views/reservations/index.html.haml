@@ -1,0 +1,17 @@
+%h2
+  Reserve your spot today!
+
+%ul
+  - @interviews.each do |i|
+    %li
+      - iv = i[:interview]
+      - if i[:state] == :owned
+        = form_for(iv) do |f|
+          = iv.interview_at
+          = f.submit "Release"
+      - elsif i[:state] == :reserved
+        Reserved
+      - else
+        = form_for(iv) do |f|
+          = iv.interview_at
+          = f.submit "Reserve"
