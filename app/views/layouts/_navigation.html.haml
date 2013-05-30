@@ -1,4 +1,10 @@
-= link_to "Schedule Me Now!", root_path, :class => 'brand'
+- if user_signed_in? && current_user.instructor?
+  = link_to "Schedule Me Now!", dashboard_path, :class => 'brand'
+- elsif user_signed_in?
+  = link_to "Schedule Me Now!", reservations_path, :class => 'brand'
+- else
+  = link_to "Schedule Me Now!", root_path, :class => 'brand'
+
 %ul.nav
   - if user_signed_in?
     %li
