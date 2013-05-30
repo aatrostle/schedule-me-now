@@ -36,7 +36,11 @@ class InterviewsController < ApplicationController
       if current_user.id == @interview.applicant_id
         @interview.update_attribute(:applicant_id, nil)
       elsif @interview.applicant_id == nil
-        @interview.update_attribute(:applicant_id, current_user.id)
+        begin
+          @interview.update_attribute(:applicant_id, current_user.id)
+        rescue
+          ActiveRecord::RecordNotUnique
+        end
       end
       redirect_to reservations_path
     end

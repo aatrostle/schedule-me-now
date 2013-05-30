@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130530005738) do
+ActiveRecord::Schema.define(:version => 20130530213233) do
 
   create_table "interviews", :force => true do |t|
     t.datetime "interview_at"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(:version => 20130530005738) do
     t.integer  "instructor_id"
     t.integer  "applicant_id"
   end
+
+  add_index "interviews", ["applicant_id"], :name => "index_interviews_on_applicant_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false
