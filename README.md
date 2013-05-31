@@ -10,7 +10,24 @@ Description
 Installation
 ---
 
-No installation instructions at this time.
+* Clone the repo
+* bundle install
+* rake db:seed
+
+Usage
+---
+
+* Login as an Applicant and reserve an interview slot!
+
+  **email:** applicant@gmail.com
+
+  **password:** buttercup
+
+* Login as an Instructor and add interview slots or turn an applicant into an instructor!
+
+  **email:** instructor@codefellows.com
+
+  **password:** buttercup
 
 Issues
 ---
