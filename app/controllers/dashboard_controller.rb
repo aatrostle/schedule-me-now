@@ -2,11 +2,11 @@ class DashboardController < ApplicationController
   before_filter :authorize_instructor!
 
   def index
-    @interviews = Interview.all
+    @interviews = Interview.order("interview_at").all
   end
 
   def users
-    @users = User.all
+    @users = User.where("instructor = false").all
   end
 
 end

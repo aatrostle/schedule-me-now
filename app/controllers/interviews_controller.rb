@@ -12,7 +12,10 @@ class InterviewsController < ApplicationController
 
   def create
     @interview = Interview.new(params[:interview])
-    if @interview.save
+    if @interview.interview_at < Time.now
+      flash[:alert] = "Interview cannot be scheduled for the past"
+      render :action => "new"
+    elsif @interview.save
       flash[:notice] = "Interview has been created."
       redirect_to interviews_path
     else

@@ -1,7 +1,10 @@
 %h2
   Dashboard
 
+%p
+  = link_to "New Interview", new_interview_path
+
 %ul
   - @interviews.each do |interview|
     %li
-      = interview.interview_at
+      = interview.interview_at.strftime(" %B %d at %I:%M %p")

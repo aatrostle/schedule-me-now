@@ -3,7 +3,7 @@
   %div.control-group
     = f.label :interview_at, :class => "control-label"
     %div.controls
-      = f.datetime_select :interview_at
+      = f.datetime_select :interview_at, :start_year => Time.now.year, :ampm => true
   %div.control-group
     %div.controls
       = f.submit "Create Interview", :class => "btn"
