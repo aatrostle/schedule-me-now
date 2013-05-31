@@ -6,7 +6,14 @@ class DashboardController < ApplicationController
   end
 
   def users
-    @users = User.where("instructor = false").all
+    # @user = User.find(params[:id])
+    @list_applicants = User.where("instructor = false")
+    @list_instructors = User.where("instructor = true")
+  end
+
+  def interviews
+    @interview = Interview.new
+    @list_interviews = Interview.order("interview_at").all
   end
 
 end

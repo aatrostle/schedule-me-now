@@ -1,0 +1,12 @@
+%h2
+  Add Interview Slot
+
+  = render 'interviews/form'
+
+%h2
+  Interview Slots
+
+%ul
+  - @list_interviews.each do |i|
+    %li
+      = i.interview_at.strftime(" %B %d at %I:%M %p")

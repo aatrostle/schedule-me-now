@@ -2,13 +2,16 @@ ScheduleMeNow::Application.routes.draw do
   devise_for :users
 
   resources :interviews
+  resources :users
 
   devise_scope :user do
     root :to => "devise/sessions#new"
   end
 
   get "/dashboard" => "dashboard#index"
+  get "/dashboard/interviews" => "dashboard#interviews"
   get "/dashboard/users" => "dashboard#users"
+
   get "/reservations" => "reservations#index"
 
   # The priority is based upon order of creation:

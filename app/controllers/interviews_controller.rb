@@ -14,14 +14,12 @@ class InterviewsController < ApplicationController
     @interview = Interview.new(params[:interview])
     if @interview.interview_at < Time.now
       flash[:alert] = "Interview cannot be scheduled for the past"
-      render :action => "new"
     elsif @interview.save
       flash[:notice] = "Interview has been created."
-      redirect_to interviews_path
     else
       flash[:alert] = "Interview has not been created."
-      render :action => "new"
     end
+    redirect_to dashboard_interviews_path
   end
 
   def show
@@ -35,18 +33,18 @@ class InterviewsController < ApplicationController
       @interview.update_attributes(params[:interview])
       flash[:notice] = "Interview has been updated."
       redirect_to interviews_path
-    else
-      if current_user.id == @interview.applicant_id
-        @interview.update_attribute(:applicant_id, nil)
-      elsif @interview.applicant_id == nil
-        begin
-          @interview.update_attribute(:applicant_id, current_user.id)
-        rescue
-          ActiveRecord::RecordNotUnique
-        end
-      end
-      redirect_to reservations_path
     end
+
+    if current_user.id == @interview.applicant_id
+      @interview.update_attribute(:applicant_id, nil)
+    elsif @interview.applicant_id == nil
+      begin
+        @interview.update_attribute(:applicant_id, current_user.id)
+      rescue
+        ActiveRecord::RecordNotUnique
+      end
+    end
+    redirect_to reservations_path
   end
 
 private
