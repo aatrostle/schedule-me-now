@@ -6,7 +6,12 @@
 %h2
   Interview Slots
 
-%ul
-  - @list_interviews.each do |i|
-    %li
-      = i.interview_at.strftime(" %B %d at %I:%M %p")
+%table.table-bordered.table-striped
+  %thead
+    %tr
+      %th Date and Time
+  %tbody
+    - @list_interviews.each do |i|
+      %tr
+        %td
+          = i.interview_at.strftime(" %B %d at %I:%M %p")

@@ -1,8 +1,9 @@
-class DashboardController < ApplicationController
+  class DashboardController < ApplicationController
   before_filter :authorize_instructor!
 
   def index
-    @interviews = Interview.order("interview_at").all
+    @interviews = Interview.order("interview_at").all(:conditions => {:applicant_id => true})
+
   end
 
   def users

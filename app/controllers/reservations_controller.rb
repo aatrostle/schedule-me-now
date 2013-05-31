@@ -2,7 +2,7 @@ class ReservationsController < ApplicationController
   before_filter :authorize_applicant!
 
   def index
-    interviews = Interview.all
+    interviews = Interview.where("interview_at > ?", DateTime.now).order("interview_at")
     @interviews = []
     interviews.each do |i|
       @interviews << {:state => i.state(current_user.id),
