@@ -6,6 +6,8 @@ gem 'dynamic_form', '1.1.4'
 # gem 'sqlite3'
 gem 'pg'
 
+gem "seed_dump", "~> 0.4.3"
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
