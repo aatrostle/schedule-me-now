@@ -71,6 +71,9 @@ GEM
     factory_girl (2.6.4)
       activesupport (>= 2.3.9)
     ffi (1.8.1)
+    figaro (0.6.4)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     haml (4.0.3)
       tilt
     haml-rails (0.4)
@@ -189,6 +192,7 @@ DEPENDENCIES
   devise
   dynamic_form (= 1.1.4)
   factory_girl (= 2.6.4)
+  figaro
   haml-rails
   jquery-rails
   launchy

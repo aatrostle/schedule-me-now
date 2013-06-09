@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: <%= ENV["SMN_DEV_DB"] %>
+  pool: 5
+  username: <%= ENV["PG_USERNAME"] %>
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: <%= ENV["SMN_TEST_DB"] %>
+  pool: 5
+  username: <%= ENV["PG_USERNAME"] %>
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: <%= ENV["SMN_PROD_DB"] %>
+  pool: 5
+  username: <%= ENV["PG_USERNAME"] %>
+  password:
