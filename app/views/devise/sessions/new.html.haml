@@ -1,0 +1,21 @@
+
+= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "form-horizontal" }) do |f|
+  %h2 Sign in
+  %div.control-group
+    = f.label(:email, :class => "control-label")
+    %div.controls
+      = f.email_field :email, :autofocus => true
+  %div.control-group
+    = f.label(:password, :class => "control-label")
+    %div.controls
+      = f.password_field :password
+  %div.control-group
+    - if devise_mapping.rememberable?
+      %div.controls
+        = f.label(:remember_me, :class => "checkbox") do
+          = f.check_box(:remember_me, :class => "checkbox")
+          = "Remember me"
+        = f.submit("Sign in", :class => "btn")
+  %div.control-group
+    %div.controls
+      = render "devise/shared/links"
