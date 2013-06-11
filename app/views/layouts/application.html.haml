@@ -23,11 +23,11 @@
           .row
             .span12
               = render 'layouts/messages'
-        - if current_user && current_user.instructor?
-          = render 'layouts/instructor_nav'
-        .row
-          .span12
-            = yield
-        %footer
-          %hr
-          2013 &copy; Schedule Me Now!
+          - if current_user && current_user.instructor?
+            = render 'layouts/instructor_nav'
+          .row
+            .span12
+              = yield
+          %footer
+            %hr
+            2013 &copy; Schedule Me Now!
