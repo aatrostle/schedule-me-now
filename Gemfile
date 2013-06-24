@@ -3,23 +3,15 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'dynamic_form', '1.1.4'
 
-# gem 'sqlite3'
 gem 'pg'
-
-gem 'seed_dump', '~> 0.4.3'
+gem 'seed_dump', '~> 0.4.3' # maybe remove this not that great
 gem 'figaro'
 
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
   gem 'haml-rails'
   gem 'sass-rails',   '~> 3.2.3'
   gem 'bootstrap-sass', '~>2.3.1.2'
   gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -31,6 +23,11 @@ group :test, :development do
   gem 'pry-doc'
   gem 'pry-debugger'
   gem 'launchy'
+end
+
+group :development do
+  gem 'better_errors'
+  gem 'quiet_assets'
 end
 
 group :test do
@@ -50,7 +47,7 @@ gem 'devise'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'

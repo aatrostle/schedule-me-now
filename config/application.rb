@@ -58,5 +58,8 @@ module ScheduleMeNow
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Temporarily re-enable the logging of the asset pipeline messages
+    # config.quiet_assets = false
   end
 end
