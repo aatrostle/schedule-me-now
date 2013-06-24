@@ -12,6 +12,26 @@
  *= require_tree .
  */
 
+html, body { height: 100%; /* html and body can't have padding or margin */ }
+
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* negative indent footer by its height */
+  margin: 0 auto -60px;
+}
+
+/* set the fixed height footer */
+#push, #footer {
+  height: 60px;
+}
+
+#footer {
+  background: #f5f5f5;
+}
+
+
 .content {
   padding: 20px;
   margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */

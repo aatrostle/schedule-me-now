@@ -13,21 +13,24 @@
     = csrf_meta_tags
     = yield(:head)
   %body
-    %header.navbar.navbar-fixed-top
-      %nav.navbar-inner
+    #wrap
+      %header.navbar.navbar-fixed-top
+        %nav.navbar-inner
+          .container
+            = render 'layouts/navigation'
+      #main{:role => "main"}
         .container
-          = render 'layouts/navigation'
-    #main{:role => "main"}
+          .content
+            .row
+              .span12
+                = render 'layouts/messages'
+            - if current_user && current_user.instructor?
+              = render 'layouts/instructor_nav'
+            .row
+              .span12
+                = yield
+        #push
+    %footer#footer
       .container
-        .content
-          .row
-            .span12
-              = render 'layouts/messages'
-          - if current_user && current_user.instructor?
-            = render 'layouts/instructor_nav'
-          .row
-            .span12
-              = yield
-          %footer
-            %hr
-            2013 &copy; Schedule Me Now!
+        .muted.credit
+          2013 &copy; <a href="https://github.com/aatrostle/schedule-me-now">Schedule Me Now!</a> Built by <a href="https://twitter.com/aarontrostle">Aaron Trostle</a> and <a href="https://twitter.com/kevinthiswei">Kevin Wei</a>
