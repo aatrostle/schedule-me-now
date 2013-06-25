@@ -1,17 +1,22 @@
-%h2
-  Add Interview Slot
+.row
+  .span12
+    %h2
+      Add Interview Slot
+      / = render 'interviews/form'
+  .span4 date
+  .span4 time
+  .span4 button
+.row
+  .span12
+    %h2
+      Interview Slots
 
-  = render 'interviews/form'
-
-%h2
-  Interview Slots
-
-%table.table-bordered.table-striped
-  %thead
-    %tr
-      %th Date and Time
-  %tbody
-    - @list_interviews.each do |i|
-      %tr
-        %td
-          = i.interview_at.strftime(" %B %d at %I:%M %p")
+    %table.table.table-bordered.table-striped
+      %thead
+        %tr
+          %th Date and Time
+      %tbody
+        - @list_interviews.each do |i|
+          %tr
+            %td
+              = i.interview_at.strftime(" %B %d at %I:%M %p")

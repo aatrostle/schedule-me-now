@@ -1,7 +1,19 @@
-%h2
-  Upcoming Interviews
+.row
+  .span6
+    %h2
+      Today's Interviews
 
-%ul
-  - @interviews.each do |interview|
-    %li
-      = interview.interview_at.strftime(" %B %d at %I:%M %p")
+    %table.table.table-bordered.table-striped
+      %thead
+        %tr
+          %th Date and Time
+          %th Start Interview
+      %tbody
+        - @interviews.each do |interview|
+          %tr
+            %td
+              = interview.interview_at.strftime(" %B %d at %I:%M %p")
+            %td
+              = button_to 'Start interview'
+  .span6
+    other stuff here

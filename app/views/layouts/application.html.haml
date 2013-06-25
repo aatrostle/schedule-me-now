@@ -26,11 +26,11 @@
                 = render 'layouts/messages'
             - if current_user && current_user.instructor?
               = render 'layouts/instructor_nav'
-            .row
-              .span12
-                = yield
+            = yield
         #push
     %footer#footer
-      .container
+      .container.clearfix
         .muted.credit
           2013 &copy; <a href="https://github.com/aatrostle/schedule-me-now">Schedule Me Now!</a> Built by <a href="https://twitter.com/aarontrostle">Aaron Trostle</a> and <a href="https://twitter.com/kevinthiswei">Kevin Wei</a>
+        .muted.spon
+          A <a href="https://www.codefellows.org/">Code Fellows</a> production
