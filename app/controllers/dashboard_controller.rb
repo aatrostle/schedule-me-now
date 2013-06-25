@@ -2,8 +2,7 @@
   before_filter :authorize_instructor!
 
   def index
-    @interviews = Interview.order("interview_at").all(:conditions => {:applicant_id => true})
-
+    @interviews = Interview.order("interview_at").where("applicant_id IS NOT NULL").all
   end
 
   def users
