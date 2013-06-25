@@ -1,12 +1,11 @@
 FactoryGirl.define do
   factory :user do
+    email "applicant@email.com"
     password "password"
     password_confirmation "password"
 
     factory :instructor_user do
-      after_create do |user|
-        user.update_attribute(:instructor, true)
-      end
+      after_create { |user| user.update_attribute(:instructor, true) }
     end
 
   end
