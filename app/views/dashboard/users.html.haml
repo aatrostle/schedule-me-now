@@ -1,7 +1,6 @@
 .row
   .span12
-    %h2
-      Applicants
+    %h2 Applicants
     %table.table.table-bordered.table-striped
       %thead
         %tr
@@ -13,27 +12,32 @@
         - @list_applicants.each do |u|
           %tr
             = form_for(u) do |f|
+              %td= u.name
+              %td= u.email
               %td
-                = u.name
-              %td
-                = u.email
-              / %td
-              /   = f.check_box :instructor
-              %td
-                = f.submit "Make Instuctor"
+                = f.check_box :instructor
+                = f.submit 'Make Instructor'
 .row
   .span12
-    %h2
-      Instructors
+    %h2 Instructors
     %table.table.table-bordered.table-striped
       %thead
         %tr
           %th Name
           %th Email
+          %th Instructor?
       %tbody
         - @list_instructors.each do |u|
           %tr
-            %td
-              = u.name
-            %td
-              = u.email
+            =form_for(u) do |f|
+              %td= u.name
+              %td= u.email
+              -if current_user.id == u.id
+                %td This is you!
+              -else
+                %td
+                  = f.check_box :instructor
+                  = f.submit 'Make Applicant'
+              / %td
+              /   = f.check_box :instructor
+              /   = f.submit 'Make Applicant'

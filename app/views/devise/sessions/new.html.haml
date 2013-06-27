@@ -1,21 +1,33 @@
+.row
+  .span6
+    %h2 Sign in
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "form-horizontal" }) do |f|
+      %div.control-group
+        = f.label :email, :class => "control-label"
+        %div.controls
+          = f.email_field :email, :autofocus => true
+      %div.control-group
+        = f.label :password, :class => "control-label"
+        %div.controls
+          = f.password_field :password
+      %div.control-group
+        - if devise_mapping.rememberable?
+          %div.controls
+            = f.label :remember_me, :class => "checkbox" do
+              = f.check_box :remember_me, :class => "checkbox"
+              = "Remember me"
+            = f.submit "Sign in", :class => "btn"
+      %div.control-group
+        %div.controls
+          = render "devise/shared/links"
+  .span6
+    %h2 Congratulations!
+    =image_tag "codefellows-logo.png", :style => "float:right;width:200px;"
 
-= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "form-horizontal" }) do |f|
-  %h2 Sign in
-  %div.control-group
-    = f.label(:email, :class => "control-label")
-    %div.controls
-      = f.email_field :email, :autofocus => true
-  %div.control-group
-    = f.label(:password, :class => "control-label")
-    %div.controls
-      = f.password_field :password
-  %div.control-group
-    - if devise_mapping.rememberable?
-      %div.controls
-        = f.label(:remember_me, :class => "checkbox") do
-          = f.check_box(:remember_me, :class => "checkbox")
-          = "Remember me"
-        = f.submit("Sign in", :class => "btn")
-  %div.control-group
-    %div.controls
-      = render "devise/shared/links"
+    %p You're a finalist for the Code Fellows Ruby on Rails bootcamp.
+
+    %p What does that mean? We'd like to bring you in for a ten-minute interview and get to know you a little better.
+
+    %p Interviews are in person at TechStars in Seattle. 511 Boren Ave N. <b>Sign up for an account to reserve your timeslot!</b>
+
+    %p If you can't make it in person you may use Skype. Please email us at hello@codefellows.org.

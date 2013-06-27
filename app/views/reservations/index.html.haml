@@ -1,8 +1,24 @@
 .row
   .span12
-    %h2
-      Reserve your spot today!
-    %table.table.table-bordered.table-hover
+    %h2 Congratulations
+
+    %p We'd like to talk to you. Interviews are 10 minutes long. Please be prepared to talk about why you'd like to be in Code Fellows, how you'll take advantage of the program, and what you want to do when you complete the program.
+
+    %p For the interview, please bring a resume and be prepared to talk about why you want to learn Rails, how you'll take advantage of the program, and what you want to do when you finish the program. We will also ask some simple coding questions. We're looking for motivated individuals who will seize this opportunity and become an amazing engineer.
+
+    %p For Skype video interviews, please add 'Codefellows' as a contact. We'll call you at the interview time.
+
+    %p NOTE: All times are Pacific (we're in Seattle!)
+
+    %p If you'd like to change your time, you must first release your current time, then choose another.
+
+    %p If none of these times work for you, please email us (hello@codefellows.org) about alternative times.
+
+    %p Congratulations again! If you have any questions before your interview time, please email hello@codefellows.org.
+
+    %hr
+
+    %table.table.table-hover
       %thead
         %tr
           %th Timeslot
@@ -10,18 +26,14 @@
       %tbody
         - @interviews.each do |i|
           %tr
-          - iv = i[:interview]
-          - if i[:state] == :owned
-            = form_for(iv) do |f|
+            - istatus = i[:interview]
+            %td=istatus.interview_at.strftime("%l:%M%P on %A, %B %e")
+            - if i[:state] == :owned
+              = form_for(istatus) do |f|
+                %td=f.submit "Release", :class => "btn btn-success"
+            - elsif i[:state] == :reserved
               %td
-                = iv.interview_at
-              %td
-                = f.submit "Release", :class => "btn btn-success"
-          - elsif i[:state] == :reserved
-            Reserved
-          - else
-            = form_for(iv) do |f|
-              %td
-                = iv.interview_at
-              %td
-                = f.submit "Reserve", :class => "btn"
+                %div.btn.disabled Reserved
+            - else
+              = form_for(istatus) do |f|
+                %td=f.submit "Reserve", :class => "btn"

@@ -1,19 +1,37 @@
 .row
   .span6
-    %h2
-      Today's Interviews
-
+    %h2 Today's Interviews
     %table.table.table-bordered.table-striped
       %thead
         %tr
-          %th Date and Time
+          %th Name
+          %th Time
           %th Start Interview
       %tbody
         - @interviews.each do |interview|
           %tr
             %td
-              = interview.interview_at.strftime(" %B %d at %I:%M %p")
+              / = interview.user.name
+            %td
+              = interview.interview_at.strftime("%l:%M%P")
             %td
               = button_to 'Start interview'
   .span6
-    other stuff here
+    %h3 Instructions
+    %p
+      These will come later, don't worry.
+.row
+  .span12
+    %h3 Scheduled Candidates
+    %table.table.table-bordered.table-striped
+      %thead
+        %tr
+          %th Name
+          %th Email
+          %th Interview Datetime
+      %tbody
+        - @list_applicants.each do |applicant|
+          %tr
+            %td= applicant.name
+            %td= applicant.email
+            / %td= applicant.interview.interview_at.strftime(" %B %d at %I:%M %p")
