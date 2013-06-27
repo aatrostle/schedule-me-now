@@ -13,7 +13,8 @@ class InterviewsController < ApplicationController
   def create
     @interview = Interview.new(params[:interview])
     @interview.instructor_id = current_user.id
-    if @interview.interview_at < Time.now
+    if @interview.interview_at.to_datetime < DateTime.now.utc
+      binding.pry
       flash[:alert] = "Interview can not be scheduled in the past."
     elsif @interview.save
       flash[:notice] = "Interview has been created."

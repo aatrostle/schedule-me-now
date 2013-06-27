@@ -15,11 +15,11 @@ ActiveRecord::Schema.define(:version => 20130530213233) do
 
   create_table "interviews", :force => true do |t|
     t.datetime "interview_at"
+    t.integer  "applicant_id"
+    t.integer  "instructor_id"
     t.text     "notes"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
-    t.integer  "instructor_id"
-    t.integer  "applicant_id"
   end
 
   add_index "interviews", ["applicant_id"], :name => "index_interviews_on_applicant_id", :unique => true
