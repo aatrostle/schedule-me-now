@@ -1,5 +1,5 @@
 class InterviewsController < ApplicationController
-  before_filter :authorize_instructor!, :only => [:create]
+  before_filter :authorize_instructor!, :except => [:update]
   before_filter :find_interview, :only => [:update]
 
   def index
