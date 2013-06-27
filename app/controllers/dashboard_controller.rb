@@ -13,7 +13,7 @@
 
   def interviews
     @interview = Interview.new
-    @list_interviews = Interview.order("interview_at").all
+    @list_interviews = Interview.where(:instructor_id => current_user.id).order("interview_at").all
   end
 
 private

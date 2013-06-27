@@ -12,6 +12,7 @@ class InterviewsController < ApplicationController
 
   def create
     @interview = Interview.new(params[:interview])
+    @interview.instructor_id = current_user.id
     if @interview.interview_at < Time.now
       flash[:alert] = "Interview can not be scheduled in the past."
     elsif @interview.save

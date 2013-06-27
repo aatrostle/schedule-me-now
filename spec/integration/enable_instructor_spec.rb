@@ -9,8 +9,10 @@ feature 'Enable instructor privileges' do
   end
 
   scenario 'Successful update applicant to instructor' do
-    check("user_instructor")
-    click_button 'Make Instructor'
+    within_table('applicants') do
+      check("user_instructor")
+      click_button 'Make Instructor'
+    end
     page.should have_content('User has been made Instructor.')
   end
 
