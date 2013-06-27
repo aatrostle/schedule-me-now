@@ -4,7 +4,8 @@ class Interview < ActiveRecord::Base
   # NEED TO FIX VALIDATION - DOESNT WORK
   # validates :applicant_id, :uniqueness => true, :on => :save
 
-  belongs_to :user
+  belongs_to :user, :class_name => 'User',
+                    :foreign_key => 'user_id'
 
   def state(u_id)
     if u_id == self.applicant_id
