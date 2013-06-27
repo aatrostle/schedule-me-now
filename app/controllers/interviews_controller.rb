@@ -13,7 +13,7 @@ class InterviewsController < ApplicationController
   def create
     @interview = Interview.new(params[:interview])
     if @interview.interview_at < Time.now
-      flash[:alert] = "Interview cannot be scheduled for the past"
+      flash[:alert] = "Interview can not be scheduled in the past."
     elsif @interview.save
       flash[:notice] = "Interview has been created."
     else
@@ -42,6 +42,7 @@ class InterviewsController < ApplicationController
         @interview.update_attribute(:applicant_id, current_user.id)
       rescue
         ActiveRecord::RecordNotUnique
+        flash[:alert] = "You need to release your reserved time first!"
       end
     end
     redirect_to reservations_path
