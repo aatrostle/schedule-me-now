@@ -2,13 +2,16 @@ require 'spec_helper'
 
 feature 'Enable instructor privileges' do
   before do
-    sign_in_as!(Factory(:instructor_user,
-                        :email => "instructor@codefellows.org"))
+    Factory(:user)
+    visit '/'
+    sign_in_as!(Factory(:instructor_user))
+    click_link 'Users'
   end
 
   scenario 'Successful update applicant to instructor' do
-    page.should have_content("Dashboard")
-
+    check("user_instructor")
+    click_button 'Make Instructor'
+    page.should have_content('User has been made Instructor.')
   end
 
 end

@@ -6,7 +6,7 @@ feature 'Signing in' do
     Factory(:instructor_user, :email => "instructor@codefellows.org")
   end
 
-  context "applicant users" do
+  context "as an applicant user" do
     scenario 'Signing in via form' do
       visit '/'
       fill_in 'Email', :with => "applicant@email.com"
@@ -16,7 +16,7 @@ feature 'Signing in' do
     end
   end
 
-  context "instructor users" do
+  context "as an instructor user" do
     scenario 'Signing in via form' do
       visit '/'
       fill_in 'Email', :with => "instructor@codefellows.org"

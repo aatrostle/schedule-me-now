@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :interview do
-    date "6/7/2013"
+    sequence(:instructor_id) { |n| n }
+    interview_at "2013-06-28 18:30:00"
   end
 end
