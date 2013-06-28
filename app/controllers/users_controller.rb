@@ -3,7 +3,11 @@ class UsersController < ApplicationController
 
   def update
     @user.update_attributes(params[:user])
-    flash[:notice] = "User has been made Instructor."
+    if @user.instructor == true
+      flash[:notice] = "User has been made Instructor."
+    else
+      flash[:notice] = "User has been made Applicant."
+    end
     redirect_to dashboard_users_path
   end
 

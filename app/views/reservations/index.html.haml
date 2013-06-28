@@ -1,6 +1,6 @@
 .row
   .span12
-    %h2 Congratulations
+    %h2#reservations Congratulations
 
     %p We'd like to talk to you. Interviews are 10 minutes long. Please be prepared to talk about why you'd like to be in Code Fellows, how you'll take advantage of the program, and what you want to do when you complete the program.
 
@@ -25,8 +25,8 @@
           %th Reserve!
       %tbody
         - @interviews.each do |i|
-          %tr
-            - istatus = i[:interview]
+          - istatus = i[:interview]
+          %tr{:id => istatus.id }
             %td=istatus.interview_at.strftime("%l:%M%P on %A, %B %e")
             - if i[:state] == :owned
               = form_for(istatus) do |f|

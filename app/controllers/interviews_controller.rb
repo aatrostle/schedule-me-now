@@ -3,7 +3,8 @@ class InterviewsController < ApplicationController
   before_filter :find_interview, :only => [:update, :edit]
 
   def index
-    @interviews = Interview.all
+    @interviews = Interview.where("applicant_id IS NOT NULL").all
+    @list_applicants = User.where("instructor = false")
   end
 
   def new

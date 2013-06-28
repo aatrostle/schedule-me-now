@@ -1,9 +1,17 @@
-%h2
-  Today's Interviews
-%ul
-  - @interviews.each do |interview|
-    %li
-      = interview.interview_at.strftime(" %B %d at %I:%M %p")
-
-
-= link_to "New Interview", new_interview_path
+.row
+  .span12
+    %h2 Completed Interviews
+    %table.table.table-bordered.table-striped
+      %thead
+        %tr
+          %th Name
+          %th Time
+          %th Notes
+          %th Controls
+      %tbody
+        - @interviews.each do |i|
+          %tr
+            %td=@list_applicants.find(i.applicant_id).name
+            %td=i.interview_at.strftime(" %B %d at %I:%M %p")
+            %td=i.notes
+            %td controls here
