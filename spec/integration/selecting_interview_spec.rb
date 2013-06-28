@@ -5,15 +5,25 @@ feature "Selecting interview" do
     Factory(:interview)
     sign_in_as!(Factory(:user))
     visit '/'
-    click_link
   end
 
   scenario "Selecting an unreserved time" do
-    click_button "Reserve 9:30 AM"
+    within("#1") do
+      click_button "Reserve"
+    end
+    within("#1") do
+      find_button("Release")
+    end
   end
 
-  scenario "Release your time before selecting another" do
-    Factory(:interview)
-  end
+  # scenario "Release your time before selecting another" do
+  #   Factory(:interview, :applicant_id => "2")
+  #   within("#2") do
+  #     click_button "Release"
+  #   end
+  #   within("#2") do
+  #     find_button("Reserve")
+  #   end
+  # end
 
 end

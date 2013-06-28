@@ -12,7 +12,9 @@ feature 'Signing in' do
       fill_in 'Email', :with => "applicant@email.com"
       fill_in 'Password', :with => "password"
       click_button "Sign in"
-      page.should have_content("Reserve your spot today!")
+      within('#reservations') do
+        page.should have_content("Congratulations")
+      end
     end
   end
 

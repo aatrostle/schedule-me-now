@@ -4,7 +4,7 @@ feature 'Creating Interviews' do
   before do
     sign_in_as!(Factory(:instructor_user))
     visit '/'
-    click_link 'Interviews'
+    click_link 'Timeslots'
   end
 
   scenario "can create interview" do

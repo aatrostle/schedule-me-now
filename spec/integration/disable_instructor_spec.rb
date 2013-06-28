@@ -9,8 +9,10 @@ feature 'Disable instructor privileges' do
   end
 
   scenario 'Successful update instructor to applicant' do
-    check("user_instructor")
-    click_button 'Make Applicant'
+    within_table("instructors") do
+      uncheck("user_instructor")
+      click_button 'Make Applicant'
+    end
     page.should have_content('User has been made Applicant.')
   end
 
