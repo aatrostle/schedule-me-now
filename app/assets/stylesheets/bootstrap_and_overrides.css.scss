@@ -24,6 +24,10 @@
   background: #f5f5f5;
 }
 
+select {
+  width: 100px;
+}
+
 /* responsive footer fixes */
 @media (max-width: 767px) {
   #footer {
