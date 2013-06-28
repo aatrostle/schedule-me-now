@@ -11,7 +11,7 @@
         - @interviews.each do |interview|
           %tr
             %td
-              / = interview.user.name
+              = @list_applicants.find(interview.applicant_id).name
             %td
               = interview.interview_at.strftime("%l:%M%P")
             %td
@@ -34,4 +34,4 @@
           %tr
             %td= applicant.name
             %td= applicant.email
-            / %td= applicant.interview.interview_at.strftime(" %B %d at %I:%M %p")
+            %td= applicant.interviews.first ? applicant.interviews.first.interview_at.strftime(" %B %d at %I:%M %p") : ""

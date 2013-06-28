@@ -10,6 +10,6 @@ class User < ActiveRecord::Base
                   :remember_me, :instructor
   # attr_accessible :title, :body
 
-  has_many :interview, :class_name => 'Interview',
+  has_many :interviews, :class_name => 'Interview',
                        :foreign_key => 'applicant_id'
 end

@@ -1,4 +1,4 @@
-  class DashboardController < ApplicationController
+class DashboardController < ApplicationController
   before_filter :authorize_instructor!
   before_filter :list_applicants, :only => [:index, :users]
 
@@ -16,8 +16,8 @@
     @list_interviews = Interview.where(:instructor_id => current_user.id).order("interview_at").all
   end
 
-private
-  def list_applicants
-    @list_applicants = User.where("instructor = false")
-  end
+  private
+    def list_applicants
+      @list_applicants = User.where("instructor = false")
+    end
 end
