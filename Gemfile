@@ -6,11 +6,12 @@ gem 'dynamic_form', '1.1.4'
 gem 'pg'
 gem 'seed_dump', '~> 0.4.3' # maybe remove this not that great
 gem 'figaro'
+gem 'bootstrap-sass', '~>2.3.1.2'
+
 
 group :assets do
   gem 'haml-rails'
   gem 'sass-rails',   '~> 3.2.3'
-  gem 'bootstrap-sass', '~>2.3.1.2'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
 end
