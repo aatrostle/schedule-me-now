@@ -13,7 +13,7 @@ feature 'Signing in' do
       fill_in 'Password', :with => "password"
       click_button "Sign in"
       within('#reservations') do
-        page.should have_content("Congratulations")
+        page.should have_content("Congratulations!")
       end
     end
   end
