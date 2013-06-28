@@ -6,12 +6,12 @@
         %tr
           %th Name
           %th Time
-          %th Notes
+          %th Review
           %th Controls
       %tbody
         - @interviews.each do |i|
           %tr
             %td=@list_applicants.find(i.applicant_id).name
             %td=i.interview_at.strftime(" %B %d at %I:%M %p")
-            %td=i.notes
+            %td= link_to "Review Interview", edit_interview_path(i), :method => :get
             %td= link_to "Delete Interview", i, :method => :delete, :confirm => "Are you sure you want to delete this interview slot?"
