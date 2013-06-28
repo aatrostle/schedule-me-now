@@ -7,7 +7,6 @@ class DashboardController < ApplicationController
   end
 
   def users
-    # @user = User.find(params[:id])
     @list_instructors = User.where("instructor = true")
   end
 

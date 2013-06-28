@@ -6,7 +6,7 @@
         %tr
           %th Name
           %th Time
-          %th Start Interview
+          %th Start
       %tbody
         - @interviews.each do |interview|
           %tr
@@ -15,7 +15,7 @@
             %td
               = interview.interview_at.strftime("%l:%M%P")
             %td
-              = button_to 'Start interview'
+              = button_to 'Start Interview', edit_interview_path(interview), :method => :get
   .span6
     %h3 Instructions
     %p
