@@ -12,5 +12,6 @@ instructor_user = User.create(:email => "instructor@codefellows.com",
                               :instructor => true)
 
 applicant_user = User.create(:email => "applicant@gmail.com",
-                              :password => "buttercup")
+                              :password => "buttercup",
+                              :name => "Russel Wilson")
 
