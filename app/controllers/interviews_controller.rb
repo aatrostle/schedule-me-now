@@ -27,18 +27,16 @@ class InterviewsController < ApplicationController
   end
 
   def edit
+    @user = User.find(@interview.applicant_id)
   end
 
   def update
     if current_user.instructor?
       @interview.update_attributes(params[:interview])
-      flash[:notice] = "Interview has been updated."
-      redirect_to interviews_path
-    end
-
-    if current_user.id == @interview.applicant_id
+      flash[:notice] = "Notes Saved!"
+    elsif current_user.id == @interview.applicant_id
       @interview.update_attribute(:applicant_id, nil)
-    elsif @interview.applicant_id == nil
+    else @interview.applicant_id == nil
       begin
         @interview.update_attribute(:applicant_id, current_user.id)
       rescue

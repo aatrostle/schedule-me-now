@@ -1,1 +1,23 @@
-EDIT
+.row
+  .span6
+    %h2 Interview Mode
+    %table.table.table-bordered
+      %thead
+        %tr
+          %th Name
+          %td=@user.name
+
+      %tbody
+        %tr
+          %th Email
+          %td=@user.email
+  .span6
+    %h3 Notes
+    = form_for @interview do |f|
+      = f.error_messages
+      %div.control-group
+        = f.text_area :notes, :class => "span6"
+      %div.control-group
+        %div.controls
+          = f.submit "Finish Interview", :class => "btn span6"
+
