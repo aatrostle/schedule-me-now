@@ -1,6 +1,6 @@
 class InterviewsController < ApplicationController
   before_filter :authorize_instructor!, :except => [:update]
-  before_filter :find_interview, :only => [:update, :edit]
+  before_filter :find_interview, :only => [:update, :edit, :destroy]
 
   def index
     @interviews = Interview.where("applicant_id IS NOT NULL").all
@@ -46,6 +46,12 @@ class InterviewsController < ApplicationController
       end
     end
     redirect_to reservations_path
+  end
+
+  def destroy
+    @interview.destroy
+    flash[:notice] = "Interview has been destroyed."
+    redirect_to dashboard_interviews_path
   end
 
 private

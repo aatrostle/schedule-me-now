@@ -9,8 +9,11 @@
       %thead
         %tr
           %th Date and Time
+          %th Controls
       %tbody
         - @list_interviews.each do |i|
           %tr
             %td
               = i.interview_at.strftime(" %B %d at %I:%M %p")
+            %td
+              = link_to "Delete Interview Slot", i, :method => :delete, :confirm => "Are you sure you want to delete this interview slot?"

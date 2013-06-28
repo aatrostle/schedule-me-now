@@ -14,4 +14,4 @@
             %td=@list_applicants.find(i.applicant_id).name
             %td=i.interview_at.strftime(" %B %d at %I:%M %p")
             %td=i.notes
-            %td controls here
+            %td= link_to "Delete Interview", i, :method => :delete, :confirm => "Are you sure you want to delete this interview slot?"
