@@ -3,15 +3,25 @@
 # Do not hesitate to tweak this to your needs
 
 Interview.create([
-  { :interview_at => "2013-06-10 09:15:00", :notes => nil, :created_at => "2013-05-31 04:50:25", :updated_at => "2013-05-31 04:50:25", :instructor_id => nil, :applicant_id => nil },
-  { :interview_at => "2013-06-10 09:30:00", :notes => nil, :created_at => "2013-05-31 04:50:25", :updated_at => "2013-05-31 04:50:25", :instructor_id => nil, :applicant_id => nil }
+  { :interview_at => "2013-06-29 02:00:00", :applicant_id => nil, :instructor_id => 5, :notes => nil, :created_at => "2013-06-28 22:14:18", :updated_at => "2013-06-28 22:14:18" },
+  { :interview_at => "2013-06-29 02:10:00", :applicant_id => nil, :instructor_id => 5, :notes => nil, :created_at => "2013-06-28 22:14:34", :updated_at => "2013-06-28 22:14:34" },
+  { :interview_at => "2013-06-29 02:20:00", :applicant_id => nil, :instructor_id => 5, :notes => nil, :created_at => "2013-06-28 22:14:39", :updated_at => "2013-06-28 22:14:39" },
+  { :interview_at => "2013-06-29 02:30:00", :applicant_id => nil, :instructor_id => 5, :notes => nil, :created_at => "2013-06-28 22:14:46", :updated_at => "2013-06-28 22:14:46" },
+  { :interview_at => "2013-06-29 02:40:00", :applicant_id => nil, :instructor_id => 5, :notes => nil, :created_at => "2013-06-28 22:14:57", :updated_at => "2013-06-28 22:14:57" },
+  { :interview_at => "2013-06-29 02:50:00", :applicant_id => nil, :instructor_id => 5, :notes => nil, :created_at => "2013-06-28 22:15:06", :updated_at => "2013-06-28 22:15:06" },
+  { :interview_at => "2013-06-29 03:00:00", :applicant_id => nil, :instructor_id => 5, :notes => nil, :created_at => "2013-06-28 22:15:11", :updated_at => "2013-06-28 22:15:11" },
+  { :interview_at => "2013-06-29 03:20:00", :applicant_id => nil, :instructor_id => 5, :notes => nil, :created_at => "2013-06-28 22:15:26", :updated_at => "2013-06-28 22:15:26" },
+  { :interview_at => "2013-06-29 03:30:00", :applicant_id => nil, :instructor_id => 5, :notes => nil, :created_at => "2013-06-28 22:15:33", :updated_at => "2013-06-28 22:15:33" },
+  { :interview_at => "2013-06-29 03:10:00", :applicant_id => 8, :instructor_id => 5, :notes => nil, :created_at => "2013-06-28 22:15:19", :updated_at => "2013-06-28 22:19:09" }
 ], :without_protection => true )
 
-instructor_user = User.create(:email => "instructor@codefellows.com",
-                              :password => "buttercup",
-                              :instructor => true)
 
-applicant_user = User.create(:email => "applicant@gmail.com",
-                              :password => "buttercup",
-                              :name => "Russel Wilson")
+
+User.create([
+  { :email => "applicant3@gmail.com", :encrypted_password => "$2a$10$rUXIZcaMECw2ab5CmMpJFOMABFhTH/erzjdpDn3aZf0Rjf9MVNw8K", :reset_password_token => nil, :reset_password_sent_at => nil, :remember_created_at => nil, :sign_in_count => 3, :current_sign_in_at => "2013-06-28 22:20:12", :last_sign_in_at => "2013-06-28 22:19:03", :current_sign_in_ip => "127.0.0.1", :last_sign_in_ip => "127.0.0.1", :created_at => "2013-06-28 22:18:23", :updated_at => "2013-06-28 22:20:12", :instructor => false, :name => "Applicant Ricky" },
+  { :email => "instructor@codefellows.com", :encrypted_password => "$2a$10$.Py6kSnIDgO5A3RwgpcRXux6oTxQGaUrk9by2JxzIjfILhI2O1AC.", :reset_password_token => nil, :reset_password_sent_at => nil, :remember_created_at => nil, :sign_in_count => 1, :current_sign_in_at => "2013-06-28 22:13:12", :last_sign_in_at => "2013-06-28 22:13:12", :current_sign_in_ip => "127.0.0.1", :last_sign_in_ip => "127.0.0.1", :created_at => "2013-06-28 22:13:12", :updated_at => "2013-06-28 22:13:45", :instructor => true, :name => "Instructor John" },
+  { :email => "applicant1@gmail.com", :encrypted_password => "$2a$10$m.7FmGHm4axHn1cLFhwzZuvWZrDpVSCnUOWbNWPWkhB2mBXONI7Xy", :reset_password_token => nil, :reset_password_sent_at => nil, :remember_created_at => nil, :sign_in_count => 1, :current_sign_in_at => "2013-06-28 22:17:21", :last_sign_in_at => "2013-06-28 22:17:21", :current_sign_in_ip => "127.0.0.1", :last_sign_in_ip => "127.0.0.1", :created_at => "2013-06-28 22:17:21", :updated_at => "2013-06-28 22:17:21", :instructor => false, :name => "Applicant Joe" },
+  { :email => "applicant2@gmail.com", :encrypted_password => "$2a$10$VLcE6KuP6S0jgwQ.upW4ROn1DLd8PVpvQTUBAHAg2CUR7LoBOO8/y", :reset_password_token => nil, :reset_password_sent_at => nil, :remember_created_at => nil, :sign_in_count => 1, :current_sign_in_at => "2013-06-28 22:17:48", :last_sign_in_at => "2013-06-28 22:17:48", :current_sign_in_ip => "127.0.0.1", :last_sign_in_ip => "127.0.0.1", :created_at => "2013-06-28 22:17:48", :updated_at => "2013-06-28 22:17:48", :instructor => false, :name => "Applicant Jane" }
+], :without_protection => true )
+
 
