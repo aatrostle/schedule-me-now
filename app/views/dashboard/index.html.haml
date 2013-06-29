@@ -24,7 +24,7 @@
       %li Finally on interview day click 'Start Interview' to enter interview mode and save notes during the interview!
 .row
   .span12
-    %h3 Scheduled Candidates
+    %h3 Candidates
     %table.table.table-bordered.table-striped
       %thead
         %tr
@@ -36,4 +36,4 @@
           %tr
             %td= applicant.name
             %td= applicant.email
-            %td= applicant.interviews.first ? applicant.interviews.first.interview_at.strftime(" %B %d at %I:%M %p") : ""
+            %td= applicant.interviews.first ? applicant.interviews.first.interview_at.strftime(" %B %d at %I:%M %p") : "Pending"
